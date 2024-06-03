@@ -39,7 +39,7 @@ variable "service_edge_group_longitude" {
 
 variable "service_edge_group_location" {
   type        = string
-  description = "location of the App Connector Group in City, State, Country format. example: 'San Jose, CA, USA'"
+  description = "location of the App Connector Group in City, State, Country format. example: '120 Holger Way, San Jose, CA 95134, USA'"
 }
 
 variable "service_edge_group_upgrade_day" {
