@@ -50,7 +50,7 @@ locals {
 }
 
 module "zpa_connector_docker" {
-  source            = "../../modules/terraform-zpa-connector-docker-container"
+  source            = "../../modules/terraform-zpa-pse-docker-container"
   pse_count          = var.pse_count
   image             = var.image
   container_name    = "${var.name_prefix}-ac-${random_string.suffix.result}"
