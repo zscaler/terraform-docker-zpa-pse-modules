@@ -5,7 +5,7 @@
     <img src="https://www.zscaler.com/themes/custom/zscaler/logo.svg" alt="Zscaler logo" title="Zscaler" height="50" width="250" />
 </a>
 
-# Zscaler App Connector Docker Terraform Modules
+# Zscaler Private Service Edge Docker Terraform Modules
 
 ## Support Disclaimer
 
@@ -13,7 +13,7 @@
 
 ## Description
 
-This repository contains modules and deployment configurations that can be used to deploy Zscaler App Connector software on Docker containers to securely and quickly provision SCALANCE LPE-9000 (Local Processing Engine) and AXC F 3152 from Phoenix Contact  for industrial IoT (Internet of Things) device with a Linux Operating System.
+This repository contains modules and deployment configurations that can be used to deploy Zscaler Private Service Edge software on Docker containers to securely and quickly provision SCALANCE LPE-9000 (Local Processing Engine) and AXC F 3152 from Phoenix Contact  for industrial IoT (Internet of Things) device with a Linux Operating System.
 
 These devices provide computing power for various applications in the network, and as a result you can use Docker to run your own applications.
 
@@ -32,11 +32,11 @@ Our Deployment scripts are leveraging Terraform v1.1.9 that includes full binary
 
 ### Docker requirements
 
-Please visit the Zscaler [Help Portal](https://help.zscaler.com/zpa/app-connector-deployment-guide-docker) the detailed requirements on App Connectors deployment on docker platform.
+Please visit the Zscaler [Help Portal](https://help.zscaler.com/zpa/app-connector-deployment-guide-docker) the detailed requirements on Private Service Edges deployment on docker platform.
 
 ### Zscaler requirements
 
-This module leverages the [Zscaler ZPA Provider](https://github.com/zscaler/terraform-provider-zpa) to connect to your ZPA Admin console and provision a new App Connector Group + Provisioning Key. You can still run this template if deploying to an existing App Connector Group rather than creating a new one, but using the conditional create functionality from variable byo_provisioning_key and supplying to name of your provisioning key to variable byo_provisioning_key_name. In either deployment, this is fed directly into the userdata for bootstrapping
+This module leverages the [Zscaler ZPA Provider](https://github.com/zscaler/terraform-provider-zpa) to connect to your ZPA Admin console and provision a new Private Service Edge Group + Provisioning Key. You can still run this template if deploying to an existing Private Service Edge Group rather than creating a new one, but using the conditional create functionality from variable byo_provisioning_key and supplying to name of your provisioning key to variable byo_provisioning_key_name. In either deployment, this is fed directly into the userdata for bootstrapping
 
 1. A valid Zscaler Private Access subscription and portal access
 2. Zscaler ZPA API Keys. Details on how to find and generate ZPA API keys can be located [here](https://help.zscaler.com/zpa/about-api-keys)
@@ -45,21 +45,21 @@ This module leverages the [Zscaler ZPA Provider](https://github.com/zscaler/terr
 - Client Secret
 - Customer ID
 
-3. (Optional) An existing App Connector Group and Provisioning Key. Otherwise, you can follow the prompts in the examples terraform.tfvars to create a new Connector Group and Provisioning Key
+3. (Optional) An existing Private Service Edge Group and Provisioning Key. Otherwise, you can follow the prompts in the examples terraform.tfvars to create a new Connector Group and Provisioning Key
 
-See: [Zscaler App Connector Deployment Guide for Docker](https://help.zscaler.com/zpa/app-connector-deployment-guide-docker) for additional prerequisite provisioning steps.
+See: [Zscaler Private Service Edge Deployment Guide for Docker](https://help.zscaler.com/zpa/app-connector-deployment-guide-docker) for additional prerequisite provisioning steps.
 
 ## How to deploy
 
-Provisioning templates are available for customer use/reference to successfully deploy fully operational App Connector containers once the prerequisites have been completed. Please follow the instructions located in [examples](examples/base_ac/README.md).
+Provisioning templates are available for customer use/reference to successfully deploy fully operational Private Service Edge containers once the prerequisites have been completed. Please follow the instructions located in [examples](examples/base_ac/README.md).
 
 ## Format
 
 This repository follows the [Hashicorp Standard Modules Structure](https://www.terraform.io/registry/modules/publish):
 
-- `modules` - All module resources utilized by and customized specifically for App Connector deployments. The intent is these modules are resusable and functional for any deployment type referencing for both production or lab/testing purposes.
+- `modules` - All module resources utilized by and customized specifically for Private Service Edge deployments. The intent is these modules are resusable and functional for any deployment type referencing for both production or lab/testing purposes.
 
-- `examples` - Zscaler provides fully functional deployment templates utilizing a combination of some or all of the modules published. These can utilized in there entirety or as reference templates for more advanced customers or custom deployments. For novice Terraform users, we also provide a bash script (zsac) that can be run from any Linux/Mac OS or CSP Cloud Shell that walks through all provisioning requirements as well as downloading/running an isolated teraform process. This allows App Connector deployments from any supported client without needing to even have Terraform installed or know how the language/syntax for running it.
+- `examples` - Zscaler provides fully functional deployment templates utilizing a combination of some or all of the modules published. These can utilized in there entirety or as reference templates for more advanced customers or custom deployments. For novice Terraform users, we also provide a bash script (zsac) that can be run from any Linux/Mac OS or CSP Cloud Shell that walks through all provisioning requirements as well as downloading/running an isolated teraform process. This allows Private Service Edge deployments from any supported client without needing to even have Terraform installed or know how the language/syntax for running it.
 
 ## Versioning
 
