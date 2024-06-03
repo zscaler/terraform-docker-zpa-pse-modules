@@ -33,10 +33,6 @@ repos:
     hooks:
       - id: gitlint
 
-  - repo: https://github.com/ZscalerCWP/iac-pre-commit-hooks
-    rev: v0.0.1
-    hooks:
-      - id: zscaler-iac-scanner
   - repo: https://github.com/Yelp/detect-secrets
     rev: v1.4.0
     hooks:

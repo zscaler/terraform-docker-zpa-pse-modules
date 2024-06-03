@@ -219,31 +219,31 @@ variable "service_edge_group_enabled" {
 variable "service_edge_group_country_code" {
   type        = string
   description = "Optional: Country code of this App Connector Group. example 'US'"
-  default     = ""
+  default     = "US"
 }
 
 variable "service_edge_group_city_country" {
   type        = string
   description = "Optional: The city and country of the ZPA Private Service Edge. example 'Oregon City, US'"
-  default     = ""
+  default     = "San Jose, US"
 }
 
 variable "service_edge_group_latitude" {
   type        = string
   description = "Latitude of the App Connector Group. Integer or decimal. With values in the range of -90 to 90"
-  default     = "37.3382082"
+  default     = "37.4181643"
 }
 
 variable "service_edge_group_longitude" {
   type        = string
   description = "Longitude of the App Connector Group. Integer or decimal. With values in the range of -90 to 90"
-  default     = "-121.8863286"
+  default     = "-121.9531325"
 }
 
 variable "service_edge_group_location" {
   type        = string
   description = "location of the App Connector Group in City, State, Country format. example: 'San Jose, CA, USA'"
-  default     = "San Jose, CA, USA"
+  default     = "120 Holger Way, San Jose, CA 95134, USA"
 }
 
 variable "service_edge_group_upgrade_day" {

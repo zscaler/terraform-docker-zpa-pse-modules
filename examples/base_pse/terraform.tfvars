@@ -24,20 +24,21 @@ provisioning_key_max_usage = 10
 ##    For any questions populating the below values, please reference:
 ##    https://registry.terraform.io/providers/zscaler/zpa/latest/docs/resources/zpa_service_edge_group
 
-service_edge_group_name                     = "docker-service-edge-group"
-service_edge_group_description              = "docker-service-edge-group"
-service_edge_group_enabled                  = true
-service_edge_group_country_code             = "US"
-service_edge_group_latitude                 = "37.33874"
-service_edge_group_longitude                = "-121.8852525"
-service_edge_group_location                 = "San Jose, CA, USA"
-service_edge_group_upgrade_day              = "SUNDAY"
-service_edge_group_upgrade_time_in_secs     = "66600"
-service_edge_group_override_version_profile = true
-service_edge_group_version_profile_id       = "2"
-service_edge_group_is_public                = true
-service_edge_group_grace_distance_enabled   = true
-service_edge_group_grace_distance_value     = "10"
+service_edge_group_name                      = "docker-service-edge-group"
+service_edge_group_description               = "docker-service-edge-group"
+service_edge_group_enabled                   = true
+service_edge_group_country_code              = "US"
+service_edge_group_location                  = "120 Holger Way, San Jose, CA 95134, USA"
+service_edge_group_city_country              = "San Jose, US"
+service_edge_group_latitude                  = "37.4181643"
+service_edge_group_longitude                 = "-121.9531325"
+service_edge_group_upgrade_day               = "SUNDAY"
+service_edge_group_upgrade_time_in_secs      = "66600"
+service_edge_group_override_version_profile  = true
+service_edge_group_version_profile_id        = "2"
+service_edge_group_is_public                 = true
+service_edge_group_grace_distance_enabled    = true
+service_edge_group_grace_distance_value      = "10"
 service_edge_group_grace_distance_value_unit = "MILES"
 
 
@@ -56,7 +57,7 @@ service_edge_group_grace_distance_value_unit = "MILES"
 #byo_provisioning_key_name                      = "example-key-name"
 
 capabilities = {
-  add  = ["cap_net_admin", "cap_net_bind_service", "cap_net_raw", "cap_sys_nice", "cap_sys_time", "cap_sys_resource",]
+  add  = ["cap_net_admin", "cap_net_bind_service", "cap_net_raw", "cap_sys_nice", "cap_sys_time", "cap_sys_resource", ]
   drop = []
 }
 

@@ -8,58 +8,58 @@ locals {
 "${module.zpa_provisioning_key.provisioning_key}"
 
 3) ZPA Docker Image Name
-"${module.zpa_connector_docker.image}"
+"${module.zpa_service_edge_docker.image}"
 
 4) ZPA Container Name
-"${module.zpa_connector_docker.container_name}"
+"${module.zpa_service_edge_docker.container_name}"
 
 5) ZPA Container Name
-"${module.zpa_connector_docker.hostname}"
+"${module.zpa_service_edge_docker.hostname}"
 
 6) ZPA Container Name
-"${module.zpa_connector_docker.hostname}"
+"${module.zpa_service_edge_docker.hostname}"
 
 7) ZPA Container Working Directory
-"${module.zpa_connector_docker.working_dir}"
+"${module.zpa_service_edge_docker.working_dir}"
 
 8) ZPA Container Restart
-"${module.zpa_connector_docker.restart}"
+"${module.zpa_service_edge_docker.restart}"
 
 9) ZPA Container Privilege
-"${module.zpa_connector_docker.privileged}"
+"${module.zpa_service_edge_docker.privileged}"
 
 10) ZPA Container Network Mode
-"${module.zpa_connector_docker.network_mode}"
+"${module.zpa_service_edge_docker.network_mode}"
 
 11) ZPA Container DNS
-"${module.zpa_connector_docker.dns}"
+"${module.zpa_service_edge_docker.dns}"
 
 12) ZPA Container Entrypoint
-"${module.zpa_connector_docker.entrypoint}"
+"${module.zpa_service_edge_docker.entrypoint}"
 
 13) ZPA Container Command
-"${module.zpa_connector_docker.command}"
+"${module.zpa_service_edge_docker.command}"
 
 14) ZPA Container Ports
-"${module.zpa_connector_docker.ports}"
+"${module.zpa_service_edge_docker.ports}"
 
 15) ZPA Container Volumes
-"${module.zpa_connector_docker.volumes}"
+"${module.zpa_service_edge_docker.volumes}"
 
 16) ZPA Container Devices
-"${module.zpa_connector_docker.devices}"
+"${module.zpa_service_edge_docker.devices}"
 
 17) ZPA Container Capabilities
-"${module.zpa_connector_docker.capabilities}"
+"${module.zpa_service_edge_docker.capabilities}"
 
 18) ZPA Container Networks Advanced
-"${module.zpa_connector_docker.networks_advanced}"
+"${module.zpa_service_edge_docker.networks_advanced}"
 
 19) ZPA Container Healthcheck
-"${module.zpa_connector_docker.healthcheck}"
+"${module.zpa_service_edge_docker.healthcheck}"
 
 20) ZPA Container Environment
-"${module.zpa_connector_docker.docker_networks}"
+"${module.zpa_service_edge_docker.docker_networks}"
 
 
 TB

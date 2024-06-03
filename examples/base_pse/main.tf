@@ -14,17 +14,22 @@ resource "random_string" "suffix" {
 module "zpa_service_edge_group" {
   count                                        = var.byo_provisioning_key == true ? 0 : 1 # Only use this module if a new provisioning key is needed
   source                                       = "../../modules/terraform-zpa-service-edge-group"
-  service_edge_group_name                     = "${var.service_edge_group_name}-${var.name_prefix}"
-  service_edge_group_description              = "${var.service_edge_group_description}-${var.name_prefix}"
-  service_edge_group_enabled                  = var.service_edge_group_enabled
-  service_edge_group_country_code             = var.service_edge_group_country_code
-  service_edge_group_latitude                 = var.service_edge_group_latitude
-  service_edge_group_longitude                = var.service_edge_group_longitude
-  service_edge_group_location                 = var.service_edge_group_location
-  service_edge_group_upgrade_day              = var.service_edge_group_upgrade_day
-  service_edge_group_upgrade_time_in_secs     = var.service_edge_group_upgrade_time_in_secs
-  service_edge_group_override_version_profile = var.service_edge_group_override_version_profile
-  service_edge_group_version_profile_id       = var.service_edge_group_version_profile_id
+  service_edge_group_name                      = "${var.service_edge_group_name}-${var.name_prefix}"
+  service_edge_group_description               = "${var.service_edge_group_description}-${var.name_prefix}"
+  service_edge_group_enabled                   = var.service_edge_group_enabled
+  service_edge_group_country_code              = var.service_edge_group_country_code
+  service_edge_group_city_country              = var.service_edge_group_city_country
+  service_edge_group_latitude                  = var.service_edge_group_latitude
+  service_edge_group_longitude                 = var.service_edge_group_longitude
+  service_edge_group_location                  = var.service_edge_group_location
+  service_edge_group_is_public                 = var.service_edge_group_is_public
+  service_edge_group_upgrade_day               = var.service_edge_group_upgrade_day
+  service_edge_group_grace_distance_enabled    = var.service_edge_group_grace_distance_enabled
+  service_edge_group_grace_distance_value      = var.service_edge_group_grace_distance_value
+  service_edge_group_grace_distance_value_unit = var.service_edge_group_grace_distance_value_unit
+  service_edge_group_upgrade_time_in_secs      = var.service_edge_group_upgrade_time_in_secs
+  service_edge_group_override_version_profile  = var.service_edge_group_override_version_profile
+  service_edge_group_version_profile_id        = var.service_edge_group_version_profile_id
 }
 
 
@@ -38,7 +43,7 @@ module "zpa_provisioning_key" {
   provisioning_key_enabled          = var.provisioning_key_enabled
   provisioning_key_association_type = var.provisioning_key_association_type
   provisioning_key_max_usage        = var.provisioning_key_max_usage
-  service_edge_group_id            = try(module.zpa_service_edge_group[0].service_edge_group_id, "")
+  service_edge_group_id             = try(module.zpa_service_edge_group[0].service_edge_group_id, "")
   byo_provisioning_key              = var.byo_provisioning_key
   byo_provisioning_key_name         = var.byo_provisioning_key_name
 }
@@ -49,11 +54,11 @@ locals {
   }
 }
 
-module "zpa_connector_docker" {
+module "zpa_service_edge_docker" {
   source            = "../../modules/terraform-zpa-pse-docker-container"
-  pse_count          = var.pse_count
+  pse_count         = var.pse_count
   image             = var.image
-  container_name    = "${var.name_prefix}-ac-${random_string.suffix.result}"
+  container_name    = "${var.name_prefix}-pse-${random_string.suffix.result}"
   hostname          = var.hostname
   restart_policy    = var.restart_policy
   working_dir       = var.working_dir
