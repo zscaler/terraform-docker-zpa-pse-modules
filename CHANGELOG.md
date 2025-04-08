@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file.
 
+### [1.0.1](https://github.com/zscaler/terraform-docker-zpa-pse-modules/compare/v1.0.0...v1.0.1) (2025-04-08)
+
+
+### Bug Fixes
+
+* Upgraded ZPA Provider Version to v4.0.x for OneAPI Compatibility ([#2](https://github.com/zscaler/terraform-docker-zpa-pse-modules/issues/2)) ([3606465](https://github.com/zscaler/terraform-docker-zpa-pse-modules/commit/36064653b316b2a9ddaf41a30ac1ef3c657ecadf))
+
 ## 1.0.0 (2024-06-03)
 
 
