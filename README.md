@@ -38,14 +38,50 @@ Please visit the Zscaler [Help Portal](https://help.zscaler.com/zpa/app-connecto
 
 This module leverages the [Zscaler ZPA Provider](https://github.com/zscaler/terraform-provider-zpa) to connect to your ZPA Admin console and provision a new Private Service Edge Group + Provisioning Key. You can still run this template if deploying to an existing Private Service Edge Group rather than creating a new one, but using the conditional create functionality from variable byo_provisioning_key and supplying to name of your provisioning key to variable byo_provisioning_key_name. In either deployment, this is fed directly into the userdata for bootstrapping
 
+## Legacy ZPA API Authentication Framework
+
 1. A valid Zscaler Private Access subscription and portal access
-2. Zscaler ZPA API Keys. Details on how to find and generate ZPA API keys can be located [here](https://help.zscaler.com/zpa/about-api-keys)
+2. Zscaler ZPA API Keys. Details on how to find and generate ZPA API keys can be located [here](https://registry.terraform.io/providers/zscaler/zpa/latest/docs#legacy-api-framework)
+- `zpa_client_id`
+- `zpa_client_secret`
+- `zpa_customer_id`
+- `zpa_cloud` - This authentication parameter is optional and only required if authenticating to a non-production cloud i.e `BETA`, `GOV`, `GOVUS`, `ZPATWO`
+- `use_legacy_client` - This parameter MUST be set to `true` if your tenant is NOT migrated to Zidentity.
 
-- Client ID
-- Client Secret
-- Customer ID
+```hcl
+provider "zpa" {
+  zpa_client_id            = "zpa_client_id" # pragma: allowlist secret
+  zpa_client_secret        = "zpa_client_secret" # pragma: allowlist secret
+  zpa_customer_id          = "zpa_client_secret" # pragma: allowlist secret
+  zpa_cloud                = "zpa_cloud" # pragma: allowlist secret
+  use_legacy_client        = "true" # pragma: allowlist secret
+}
+```
 
-3. (Optional) An existing Private Service Edge Group and Provisioning Key. Otherwise, you can follow the prompts in the examples terraform.tfvars to create a new Connector Group and Provisioning Key
+3. (Optional) An existing Service Edge Group and Provisioning Key. Otherwise, you can follow the prompts in the examples terraform.tfvars to create a new Connector Group and Provisioning Key
+
+See: [Zscaler Service Edge AWS Deployment Guide](https://help.zscaler.com/zpa/private-service-edge-deployment-guide-amazon-web-services) for additional prerequisite provisioning steps.
+
+## ZPA OneAPI Authentication Framework (OneAPI)
+
+1. A valid Zscaler Private Access subscription and portal access
+2. Zscaler tenant MUST be migrated to Zidentity platform.
+3. Details on how to authenticate to ZPA via Zidentity/OneAPI are located here [here](https://registry.terraform.io/providers/zscaler/zpa/latest/docs#authentication---oneapi-new-framework)
+- `client_id`
+- `client_secret`
+- `zpa_customer_id`
+- `vanity_domain`
+- `zscaler_cloud` - This authentication parameter is optional and only required if authenticating to a non-production cloud i.e `beta`
+
+```hcl
+provider "zpa" {
+  client_id = "client_id" # pragma: allowlist secret
+  client_secret = "client_secret" # pragma: allowlist secret
+  zpa_customer_id = "client_secret" # pragma: allowlist secret
+  vanity_domain = "vanity_domain" # pragma: allowlist secret
+  zscaler_cloud = "zscaler_cloud" # pragma: allowlist secret
+}
+```
 
 See: [Zscaler Private Service Edge Deployment Guide for Docker](https://help.zscaler.com/zpa/app-connector-deployment-guide-docker) for additional prerequisite provisioning steps.
 
